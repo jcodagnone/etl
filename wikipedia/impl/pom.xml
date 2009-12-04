@@ -1,0 +1,53 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>ar.com.zauber.labs.etl.wikipedia</groupId>
+        <artifactId>etl-providers-wikipedia-parent</artifactId>
+        <version>0.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>etl-providers-wikipedia-api-impl</artifactId>
+    <packaging>jar</packaging>
+    <name>Zauber Kraken::Providers::Wikipedia::API IMPL</name>
+
+    <dependencies>
+        <dependency>
+            <artifactId>etl-providers-wikipedia-api</artifactId>
+            <groupId>${pom.groupId}</groupId>
+            <version>${pom.version}</version>
+        </dependency>
+        <dependency>
+            <artifactId>etl-providers-wikipedia-schema</artifactId>
+            <groupId>${pom.groupId}</groupId>
+            <version>${pom.version}</version>
+        </dependency>
+
+        <dependency>
+            <artifactId>commons-web-rest</artifactId>
+            <groupId>ar.com.zauber.commons.web</groupId>
+            <version>${commons.version}</version>
+        </dependency>
+
+        <dependency>
+            <artifactId>spring-web</artifactId>
+            <groupId>org.springframework</groupId>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+           <groupId>org.apache.commons</groupId>
+           <artifactId>com.springsource.org.apache.commons.lang</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>compile</scope>
+        </dependency>
+
+    </dependencies>
+</project>

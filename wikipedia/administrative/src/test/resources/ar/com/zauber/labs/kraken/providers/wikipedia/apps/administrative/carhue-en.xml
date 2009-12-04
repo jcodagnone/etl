@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<api>
+    <query>
+        <pages>
+            <page pageid="8685477" ns="0" title="Carhué">
+                <langlinks>
+                    <ll lang="es" xml:space="preserve">Carhué</ll>
+                    <ll lang="nl" xml:space="preserve">Carhué</ll>
+                    <ll lang="pt" xml:space="preserve">Carhué (Argentina)</ll>
+                </langlinks>
+            </page>
+        </pages>
+    </query>
+</api>

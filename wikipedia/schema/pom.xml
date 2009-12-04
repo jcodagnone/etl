@@ -1,0 +1,43 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <description>Provides XML Schema and generated classes to understand Wikipedia's API BOT</description>
+    <parent>
+        <groupId>ar.com.zauber.labs.etl.wikipedia</groupId>
+        <artifactId>etl-providers-wikipedia-parent</artifactId>
+        <version>0.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>etl-providers-wikipedia-schema</artifactId>
+    <packaging>jar</packaging>
+    <name>Zauber Kraken::Providers::Wikipedia::BOT API Schema</name>
+
+    <dependencies>
+        <dependency>
+            <groupId>ar.com.zauber.labs.etl</groupId>
+            <artifactId>etl-schema</artifactId>
+           <version>${pom.version}</version>
+        </dependency>
+    </dependencies>
+    
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>jaxb2-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>xjc</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <packageName>ar.com.zauber.labs.semantic.administrative.wikipedia</packageName>
+                    <schemaDirectory>src/main/resources/ar/com/zauber/labs/kraken/providers/wikiedia/schema</schemaDirectory>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
+</project>

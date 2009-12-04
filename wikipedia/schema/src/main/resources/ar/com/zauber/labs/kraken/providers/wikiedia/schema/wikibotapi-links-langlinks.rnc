@@ -1,0 +1,37 @@
+datatypes xsd = "http://www.w3.org/2001/XMLSchema-datatypes"
+
+
+## Schema for the output of
+## http://es.wikipedia.org/w/api.php?action=query&redirects=true&format=xml&titles=Adolfo%20Alsina%20(partido)&prop=langlinks
+##
+## Este esquema está generado usando ingenieria reversa de los xml que retorna
+start = element api {
+    element query {
+        element redirects {
+            element r {
+                attribute from  { xsd:string},
+                attribute to  { xsd:string},
+                xsd:string
+            }*
+        }?,
+        element pages {
+            element page {
+                attribute pageid  { xsd:unsignedLong},
+                attribute ns      { xsd:short},
+                attribute title   { xsd:string},
+                element langlinks {
+                    element ll {
+                        attribute lang  { xsd:string},
+                        attribute xml:space  { xsd:string},
+                        xsd:string
+                    }*
+                }?       
+            }*  
+        }
+    },
+    element query-continue {
+        element langlinks {
+            attribute llcontinue  { xsd:string}
+        }
+    }?
+}

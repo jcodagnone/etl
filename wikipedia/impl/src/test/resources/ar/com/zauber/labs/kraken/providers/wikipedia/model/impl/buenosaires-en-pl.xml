@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<api>
+    <query>
+        <pages>
+            <page pageid="16363" ns="0" title="Provincia de Buenos Aires">
+                <langlinks>
+                    <ll lang="pl" xml:space="preserve">Buenos Aires (prowincja)</ll>
+                    <ll lang="pt" xml:space="preserve">Buenos Aires (província)</ll>
+                    <ll lang="ru" xml:space="preserve">Буэнос-Айрес (провинция)</ll>
+                    <ll lang="sk" xml:space="preserve">Buenos Aires (provincia)</ll>
+                    <ll lang="sv" xml:space="preserve">Buenos Aires (provins)</ll>
+                    <ll lang="tg" xml:space="preserve">Буэнос-Айрес (вилоят)</ll>
+                    <ll lang="tr" xml:space="preserve">Buenos Aires eyaleti</ll>
+                    <ll lang="uk" xml:space="preserve">Буенос-Айрес (провінція)</ll>
+                </langlinks>
+            </page>
+        </pages>
+    </query>
+    <query-continue>
+        <langlinks llcontinue="16363|vo" />
+    </query-continue>
+</api>

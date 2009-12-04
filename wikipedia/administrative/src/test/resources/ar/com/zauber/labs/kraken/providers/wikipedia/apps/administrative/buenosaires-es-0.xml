@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<api>
+    <query>
+        <pages>
+            <page pageid="16363" ns="0" title="Provincia de Buenos Aires">
+                <langlinks>
+                    <ll lang="ar" xml:space="preserve">بوينس أيرس (محافظة)</ll>
+                    <ll lang="bg" xml:space="preserve">Буенос Айрес (провинция)</ll>
+                    <ll lang="br" xml:space="preserve">Proviñs Buenos Aires</ll>
+                    <ll lang="ca" xml:space="preserve">Província de Buenos Aires</ll>
+                    <ll lang="cs" xml:space="preserve">Buenos Aires (provincie)</ll>
+                    <ll lang="cy" xml:space="preserve">Talaith Buenos Aires</ll>
+                    <ll lang="da" xml:space="preserve">Provincia de Buenos Aires</ll>
+                    <ll lang="de" xml:space="preserve">Buenos Aires (Provinz)</ll>
+                    <ll lang="en" xml:space="preserve">Buenos Aires Province</ll>
+                </langlinks>
+            </page>
+        </pages>
+    </query>
+</api>

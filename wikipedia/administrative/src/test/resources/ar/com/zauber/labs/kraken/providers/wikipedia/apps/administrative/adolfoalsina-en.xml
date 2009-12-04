@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<api>
+	<query>
+		<pages>
+			<page pageid="6930001" ns="0" title="Adolfo Alsina Partido">
+				<langlinks>
+					<ll lang="es" xml:space="preserve">Partido de Adolfo Alsina</ll>
+					<ll lang="fr" xml:space="preserve">Adolfo Alsina (partido)</ll>
+					<ll lang="it" xml:space="preserve">Partido di Adolfo Alsina</ll>
+					<ll lang="nl" xml:space="preserve">Adolfo Alsina (partido)</ll>
+					<ll lang="pt" xml:space="preserve">Adolfo Alsina (Partido)</ll>
+				</langlinks>
+			</page>
+		</pages>
+	</query>
+</api>

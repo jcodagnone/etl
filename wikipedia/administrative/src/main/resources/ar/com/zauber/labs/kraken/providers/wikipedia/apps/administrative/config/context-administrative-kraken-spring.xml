@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+    <import resource="mock-contentprovider-administrative-kraken-spring.xml"/>
+    <import resource="http-contentprovider-administrative-kraken-spring.xml"/>
+    
+    <bean name="mutableWikiPageRetriever" class="ar.com.zauber.labs.kraken.providers.wikipedia.model.impl.MutableWikiPageRetriever">
+        <property name="target" ref="lazyWikiPageRetriever"/>
+    </bean>
+    
+    <bean name="lazyWikiPageRetriever" class="ar.com.zauber.labs.kraken.providers.wikipedia.model.impl.LazyWikiPageRetriever">
+        <constructor-arg ref="httpWikiPageRetriever"/>
+    </bean>
+    
+    <bean name="httpWikiPageRetriever" class="ar.com.zauber.labs.kraken.providers.wikipedia.model.impl.HttpWikiPageRetriever">
+        <constructor-arg index="0" ref="httpContentProvider"/>
+        <constructor-arg index="1">
+            <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+                <property name="targetObject">
+                    <bean class="ar.com.zauber.labs.kraken.providers.wikipedia.schema.WikipediaSchemaProvider"/>
+                </property>
+                <property name="targetMethod" value="getUnmarshaller"/>
+            </bean>
+            
+         </constructor-arg>
+        <constructor-arg index="2" ref="mutableWikiPageRetriever"/>
+    </bean>
+    
+    <bean name="administrativeClosure" class="ar.com.zauber.labs.kraken.providers.wikipedia.apps.administrative.TabseparatedValueArgentinaWikiSecondLevelClosure">
+        <constructor-arg index="0">
+            <bean class="java.io.OutputStreamWriter">
+                <constructor-arg index="0">
+                    <bean class="org.springframework.beans.factory.config.FieldRetrievingFactoryBean" >
+                        <property name="staticField" value="java.lang.System.out"/>
+                    </bean>
+                </constructor-arg>
+            </bean>
+        </constructor-arg>
+    </bean>
+</beans>

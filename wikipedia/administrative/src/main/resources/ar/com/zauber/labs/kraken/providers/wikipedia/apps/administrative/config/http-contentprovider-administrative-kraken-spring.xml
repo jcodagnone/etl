@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+    <bean name="httpContentProvider" class="ar.com.zauber.commons.web.rest.impl.EhcacheContentProvider">
+        <constructor-arg index="0">
+            <bean class="ar.com.zauber.commons.web.rest.impl.JREContentProvider">
+                <property name="userAgent" value="Kraken"/>
+            </bean>
+        </constructor-arg>
+        <constructor-arg index="1">
+            <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+                <property name="targetObject" ref="httpCacheManager"/>
+                <property name="targetMethod" value="getCache"/>
+                <property name="arguments">
+                    <list>
+                        <value>wikipediaapi</value>
+                    </list>
+                </property>
+            </bean>
+        </constructor-arg>
+    </bean>
+    
+    <bean name="httpCacheManager" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean" destroy-method="destroy">
+        <property name="configLocation" value="ar/com/zauber/labs/kraken/providers/wikipedia/apps/administrative/config/ehcache.xml" />
+    </bean>
+</beans>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+    <bean name="fixedContentProvider" class="ar.com.zauber.commons.web.rest.impl.FixedContentProvider">
+        <description>Provee un content provider para test</description>
+        <constructor-arg index="0">
+            <map>
+                <entry key="http://es.wikipedia.org/w/api.php?action=query&amp;redirects=true&amp;format=xml&amp;titles=Adolfo Alsina (partido)&amp;prop=langlinks" 
+                       value="ar/com/zauber/labs/kraken/providers/wikipedia/apps/administrative/adolfoalsina-es.xml"/>                       
+                <entry key="http://en.wikipedia.org/w/api.php?action=query&amp;redirects=true&amp;format=xml&amp;titles=Adolfo Alsina Partido&amp;prop=langlinks"
+                       value="ar/com/zauber/labs/kraken/providers/wikipedia/apps/administrative/adolfoalsina-en.xml"/>
+                <entry key="http://es.wikipedia.org/w/api.php?action=query&amp;redirects=true&amp;format=xml&amp;titles=Carhué&amp;prop=langlinks"
+                       value="ar/com/zauber/labs/kraken/providers/wikipedia/apps/administrative/carhue-es.xml"/>
+                <entry key="http://en.wikipedia.org/w/api.php?action=query&amp;redirects=true&amp;format=xml&amp;titles=Carhué&amp;prop=langlinks"
+                       value="ar/com/zauber/labs/kraken/providers/wikipedia/apps/administrative/carhue-en.xml"/>
+                <entry key="http://es.wikipedia.org/w/api.php?action=query&amp;redirects=true&amp;format=xml&amp;titles=Provincia de Buenos Aires&amp;prop=langlinks"
+                       value="ar/com/zauber/labs/kraken/providers/wikipedia/apps/administrative/buenosaires-es-0.xml"/>
+                <entry key="http://en.wikipedia.org/w/api.php?action=query&amp;redirects=true&amp;format=xml&amp;titles=Buenos Aires Province&amp;prop=langlinks"
+                       value="ar/com/zauber/labs/kraken/providers/wikipedia/apps/administrative/buenosaires-en.xml"/>
+            </map>
+        </constructor-arg>
+    </bean>
+    
+    <bean name="fixedWikiPageRetriever" class="ar.com.zauber.labs.kraken.providers.wikipedia.model.impl.HttpWikiPageRetriever">
+        <constructor-arg index="0" ref="fixedContentProvider"/>
+        <constructor-arg index="1">
+            <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+                <property name="targetObject">
+                    <bean class="ar.com.zauber.labs.kraken.providers.wikipedia.schema.WikipediaSchemaProvider"/>
+                </property>
+                <property name="targetMethod" value="getUnmarshaller"/>
+            </bean>
+            
+         </constructor-arg>
+        <constructor-arg index="2" ref="mutableWikiPageRetriever"/>
+    </bean>
+</beans>
